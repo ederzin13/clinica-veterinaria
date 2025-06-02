@@ -7,9 +7,9 @@
         private Humano $comprador;
 
         // public function __construct($produtos, $comprador) {
-        //     $this->produtos[] = $produtos;
-        //     $this->comprador = $comprador;
-        // }
+            //     $this->produtos[] = $produtos;
+            //     $this->comprador = $comprador;
+            // }
 
         public function getProdutos() {
             return $this->produtos;
