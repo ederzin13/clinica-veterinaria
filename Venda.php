@@ -3,36 +3,37 @@
     require_once "Produto.php";
 
     class Venda {
-        private array $produtos;
         private Humano $comprador;
-
-        // public function __construct($produtos, $comprador) {
-            //     $this->produtos[] = $produtos;
-            //     $this->comprador = $comprador;
-            // }
-
-        public function getProdutos() {
-            return $this->produtos;
-        }
-
-        public function setProdutos(Produto $produto) {
-            $this->produtos[] = $produto;
-        }
+        private $venda;
 
         public function getComprador() {
             return $this->comprador;
         }
 
-        public function realizaVenda(Produto $produto) {
-            if ($produto->getQuant() == 0) {
-                echo "Produto esgotado\n";
-                return;
-            }
-
-            $this->adicionaProduto($produto);
+        public function setComprador($comprador) {
+            $this->comprador = $comprador;
         }
 
-        public function adicionaProduto(Produto $produto) {
-            $this->setProdutos($produto);
+        public function getVenda() {
+            return $this->venda;
+        }
+
+        public function setVenda(Produto $produto, Humano $humano) {
+            $this->venda[] = $humano->getNome() . " comprou " . $produto->getNome();
+        }
+
+        public function realizaVenda(Produto $produto, Humano $humano) {
+            $this->setVenda($produto, $humano);
+        }
+
+        public function toStringVenda() {
+            $aux = $this->getVenda();
+            $mensagem = "Venda:\n";
+
+            for ($i = 0; $i < count($aux); $i++) {
+                $mensagem .= $aux[$i] . "\n";
+            }
+
+            return $mensagem;
         }
     }

@@ -48,9 +48,9 @@ use Dom\CharacterData;
     echo $jack->falar() . PHP_EOL;
 
     echo "\nMesmo com esse caos na clínica, " . $vendedor->getNome() . ", o " . $vendedor->getCargo() . ", fez a maior venda da semana.\n";
-    $novaVenda->realizaVenda($bolinha);
-    $novaVenda->realizaVenda($guia);
+    $novaVenda->realizaVenda($bolinha, $bobers);
+    $novaVenda->realizaVenda($guia, $bobers);
     
     //venda realizada
-    print_r($novaVenda->getProdutos());
+    echo $novaVenda->toStringVenda();
 ?>
